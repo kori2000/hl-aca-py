@@ -14,11 +14,31 @@ read_env() {
 
 if [[ "$(docker images -q aca-py:latest 2> /dev/null)" == "" ]]; then
     echo " ---> Creating Aries Cloud Agent [ACA-PY]..."
-    cd ./aries-cloudagent-python/scripts
+    cd ./aca-py/scripts
     docker build -t aca-py -f ../docker/Dockerfile.run .. >> log.txt
     cd ../..
     echo ""
 fi
 
-echo " ---> Starting Agent [A]..."
-docker run --name agent_a -p 4000:8080 -p 8000:8000 aca-py:latest start --wallet-type indy --seed=000000000000000000000000Trustee1 --wallet-key password --wallet-name afj-wallet --genesis-url http://192.168.178.10:4200/local-genesis.txn --inbound-transport http 0.0.0.0 8000 --outbound-transport http --admin-insecure-mode --admin 0.0.0.0 8080 --endpoint http://192.168.178.10:8000 --label agent_a --auto-store-credential --auto-accept-invites >> log.txt
+echo " ---> Starting [DID-AGENT-01] ..."
+echo ""
+docker run --name did-agent-01 -p 4000:8080 -p 8000:8000 -d aca-py:latest start \
+ --admin 0.0.0.0 8080 \
+ --admin-insecure-mode \
+ --auto-accept-invites \
+ --auto-store-credential \
+ --genesis-url http://railchain.beta.de.com:4200/local-genesis.txn \
+ --ledger-pool-name railchainpool \
+ --wallet-type indy \
+ --seed x \
+ --wallet-name railchainwallet \
+ --wallet-key railpass \
+ --inbound-transport http 0.0.0.0 8000 \
+ --outbound-transport http \
+ --endpoint http://0.0.0.0:8000 \
+ --label DID-AGENT-01
+
+sleep 4s
+
+echo ""
+docker logs did-agent-01
