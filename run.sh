@@ -24,13 +24,13 @@ echo " ---> Starting [DID-AGENT-01] ..."
 echo ""
 docker run --name did-agent-01 -p 4000:8080 -p 8000:8000 -d aca-py:latest start \
  --admin 0.0.0.0 8080 \
- --admin-insecure-mode \
+ --admin-api-key railpass \
  --auto-accept-invites \
  --auto-store-credential \
  --genesis-url http://railchain.beta.de.com:4200/local-genesis.txn \
  --ledger-pool-name railchainpool \
  --wallet-type indy \
- --seed x \
+ --seed c \
  --wallet-name railchainwallet \
  --wallet-key railpass \
  --inbound-transport http 0.0.0.0 8000 \
