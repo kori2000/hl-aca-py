@@ -12,17 +12,22 @@ read_env() {
 }
 # "$(read_env AGENT_NAME .env)"
 
-if [[ "$(docker images -q aca-py:latest 2> /dev/null)" == "" ]]; then
+if [[ "$(docker images -q koraltan/aca-py:latest 2> /dev/null)" == "" ]]; then
     echo " ---> Creating Aries Cloud Agent [ACA-PY]..."
-    cd ./aca-py/scripts
-    docker build -t aca-py -f ../docker/Dockerfile.run .. >> log.txt
-    cd ../..
+    docker pull koraltan/aca-py
+    
+    # In case you want to build your own image, please uncomment here and
+    # delete above the docker pull command
+
+    # cd ./aca-py/scripts
+    # docker build -t aca-py -f ../docker/Dockerfile.run .. >> log.txt
+    # cd ../..
     echo ""
 fi
 
 echo " ---> Starting [DID-AGENT-01] ..."
 echo ""
-docker run --name did-agent-01 -p 4000:8080 -p 8000:8000 -d aca-py:latest start \
+docker run --name did-agent-01 -p 4000:8080 -p 8000:8000 -d koraltan/aca-py:latest start \
  --admin 0.0.0.0 8080 \
  --admin-api-key railpass \
  --auto-accept-invites \
