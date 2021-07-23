@@ -1,5 +1,8 @@
+build:
+	docker-compose build
 up:
-	./run.sh
-
+	docker-compose up -d
+	sleep 7
+	docker logs cloudagent
 down:
-	./stop.sh
+	docker-compose down

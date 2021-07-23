@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  cloudagent:
+    container_name: cloudagent
+    restart: always
+    build:
+      context: ./
+    command: "start --arg-file agent-args.yaml"
+    ports:
+      - 8021:8021
+      - 8023:8023
+      - 8024:8024
+      - 80:8021
+      - 443:8021
