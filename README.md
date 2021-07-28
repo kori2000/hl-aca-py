@@ -1,6 +1,14 @@
-# hl-aca-py
-Hyperledger Aries Cloud Agent - Python
+# Hyperledger Aries Cloud Agent - Python
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kori2000/hl-aca-py/blob/main/LICENSE)
+[![Unicorn](https://img.shields.io/badge/nyancat-approved-ff69b4.svg)](https://www.youtube.com/watch?v=QH2-TGUlwu4)
+
+A Hyperledger Aries Cloud Agent with custom settings, connected to IDUnion Test Ledger.
+
+## Hyperledger Indy transaction explorer
+https://idunion.esatus.com/home/IDunion_Test
+
+## Hyperledger ACA-PY
 https://github.com/hyperledger/aries-cloudagent-python
 
 ## Docker Image
