@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kori2000/hl-aca-py/blob/main/LICENSE)
 [![version](https://img.shields.io/badge/version-0.7.0-blue)](https://github.com/hyperledger/aries-cloudagent-python/releases/tag/0.7.0)
 [![Unicorn](https://img.shields.io/badge/nyancat-approved-ff69b4.svg)](https://www.youtube.com/watch?v=QH2-TGUlwu4)
-[![arm-support](https://img.shields.io/badge/version-v.7-red)](https://hub.docker.com/r/eorituz/aries-cloudagent)
+[![arm-support](https://img.shields.io/badge/arm-support-v.7-red)](https://hub.docker.com/r/eorituz/aries-cloudagent)
 
 A Hyperledger Aries Cloud Agent with custom settings, connected to IDUnion Test Ledger.
 
