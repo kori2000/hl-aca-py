@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  cloudagent:
+    container_name: cloudagent_arm
+    restart: always
+    build:
+      context: ./
+    command: "start \
+              --inbound-transport http 0.0.0.0 8000 \
+              --outbound-transport http \
+              --endpoint http://localhost:8000 \
+              --admin 0.0.0.0 8080 \
+              --admin-api-key drom \
+              --auto-accept-requests \
+              --auto-accept-invites \
+              --auto-respond-messages \
+              --auto-store-credential \
+              --auto-respond-credential-proposal \
+              --auto-respond-credential-offer \
+              --auto-respond-credential-request \
+              --auto-verify-presentation \
+              --auto-respond-presentation-request \
+              --wallet-type indy \
+              --wallet-name MY-WALLET \
+              --wallet-key MY-PASS \
+              --seed 0000000000000000000000000000001x
+              --genesis-file genesis.json \
+              --label MY-LABEL \
+              --log-level info"
+    ports:
+      - 8000:8000
+      - 8080:8080
