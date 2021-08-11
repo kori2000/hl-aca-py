@@ -25,3 +25,4 @@ auto-respond-credential-offer: true
 auto-respond-credential-request: true
 auto-verify-presentation: true
 auto-respond-presentation-request: true
+auto-respond-presentation-proposal: true
